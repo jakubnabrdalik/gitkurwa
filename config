@@ -31,3 +31,6 @@
     showtags = show-ref --tags
     pushtags = push --tags
     tagwithdate = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
+
+[apply]
+	whitespace = nowarn
