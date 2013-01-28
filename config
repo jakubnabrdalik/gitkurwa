@@ -32,5 +32,7 @@
     pushtags = push --tags
     tagwithdate = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
 
+    purr = pull --rebase
+
 [apply]
 	whitespace = nowarn
