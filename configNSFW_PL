@@ -33,6 +33,8 @@
 
     pojebalosiekurwa = reset --hard
 
+    ktonajebalkurwa = blame
+
     kurwa = status
     cokurwa = status
     cojestkurwa = diff
