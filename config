@@ -15,24 +15,56 @@
     untracked = cyan
 
 [alias]
+    #those who don't know history, are doomed to repeat it
     hist = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
     histfull = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
     llog = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
     changelog = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso
 
+    #wish i knew
     whois = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"
     whatis = show -s --pretty='tformat::%h (%s, %ad)' --date=short
+    howmany = "!sh -c 'git log -a --pretty=oneline | wc -l'"
+    howmanybywhom = shortlog -sn
 
+    #what's going on, I don't even
     anychanges = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
     anychangesonmaster = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
     whoischanging = !sh -c 'git shortlog HEAD..origin/$0'
     whoischangingmaster = !sh -c 'git shortlog HEAD..origin/master'
     
+    #tags
     showtags = show-ref --tags
     pushtags = push --tags
     tagwithdate = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
 
+    #better versions
     purr = pull --rebase
+    difff = diff --color-words #just words
+    bbranch = branch -v
 
+    #what do I have in my toolbox?
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+
+    #fiat lux
+    makegitrepo = !git init && git add . && git commit -m \"initial commit\"
+    
+    #Finds a filename in the git repository. Gives absolute location (from the git root).
+    find = !sh -c 'git ls-tree -r --name-only HEAD | grep --color $1' - 
+
+    #Deletes all branches that were safely merged into the master. All other are skipped (no worries).
+    cleanup = !git branch --merged master | grep -v 'master$' | xargs git branch -d  
+
+    unstage = reset HEAD --
 [apply]
-	whitespace = nowarn
+    whitespace = nowarn
+[core]
+    pager = less -r
+[help]
+    autocorrect = 1 #fucking magic!
+
+#Kudos for (copied from):
+#http://git-scm.com/book/en/Customizing-Git-Git-Configuration
+#http://robots.thoughtbot.com/post/4747482956/streamline-your-git-workflow-with-aliases
+#http://oli.jp/2012/git-powerup/#conclusion
+#http://blog.blindgaenger.net/advanced_git_aliases.html
