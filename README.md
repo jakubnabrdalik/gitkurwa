@@ -47,6 +47,8 @@ Mówi nam trochę więcej o osobie. Pomocne zwłaszcza gdy ktoś nie skonfigurow
 Mówi nam jaki był ostatni commit w tym czymś co podaliśmy
 
     git whatis <BRANCH/TAG/WHATEVER>
+    
+Mówi jakie branche mamy w origin, kto je modyfikował i kiedy. Bardzo przydatne przy używaniu gitflow i feature branchach, żeby się zorientować, co się dzieje w projekcie (i kto/kiedy robił). Wymaga aktualnej wizji repo lokalnie (czyli git fetch origin wcześniej)   
 
-
+    git showorigin
 
