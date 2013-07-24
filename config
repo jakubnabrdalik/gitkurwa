@@ -42,6 +42,7 @@
     purr = pull --rebase
     difff = diff --color-words #just words
     bbranch = branch -v
+    showorigin = !sh -c "isHash=true; for i in `git ls-remote -h origin`; do [ ! -z $isHash ] &&  echo \" $i\" || printf \"%-8s %8s %-8s%-3s %-10s %-20s\" `git log --pretty=format:\"%C(yellow)%h %Cred%ad %Cblue%an\" --date=relative $i^..$i`  ; [ ! -z $isHash ] && isHash=\"\" || isHash=true ;  done"
 
     #what do I have in my toolbox?
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
