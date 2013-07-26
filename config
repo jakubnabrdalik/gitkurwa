@@ -33,6 +33,9 @@
     whoischanging = !sh -c 'git shortlog HEAD..origin/$0'
     whoischangingmaster = !sh -c 'git shortlog HEAD..origin/master'
     
+    #what branches you have on origin, with info on who is guilty and how long ago. Useful for gitflow and feature branches in general. Requires fetch up-front.
+    showorigin = !sh -c "isHash=true; for i in `git ls-remote -h origin`; do [ ! -z $isHash ] &&  echo \" $i\" || printf \"%-8s %8s %-8s%-3s %-10s %-20s\" `git show -s --pretty=format:\"%C(yellow)%h %Cred%ad %Cblue%an\" --date=relative $i`  ; [ ! -z $isHash ] && isHash=\"\" || isHash=true ;  done"
+    
     #tags
     showtags = show-ref --tags
     pushtags = push --tags
@@ -41,8 +44,7 @@
     #better versions
     purr = pull --rebase
     difff = diff --color-words #just words
-    bbranch = branch -v
-    showorigin = !sh -c "isHash=true; for i in `git ls-remote -h origin`; do [ ! -z $isHash ] &&  echo \" $i\" || printf \"%-8s %8s %-8s%-3s %-10s %-20s\" `git log --pretty=format:\"%C(yellow)%h %Cred%ad %Cblue%an\" --date=relative $i^..$i`  ; [ ! -z $isHash ] && isHash=\"\" || isHash=true ;  done"
+    bbranch = branch -v    
 
     #what do I have in my toolbox?
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
