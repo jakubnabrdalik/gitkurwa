@@ -45,6 +45,7 @@
     purr = pull --rebase
     difff = diff --color-words #just words
     bbranch = branch -v    
+    sth = stash -u
 
     #what do I have in my toolbox?
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
