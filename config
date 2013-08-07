@@ -58,6 +58,9 @@
     #Deletes all branches that were safely merged into the master. All other are skipped (no worries).
     cleanup = !git branch --merged master | grep -v 'master$' | xargs git branch -d  
 
+    #Deletes orphaned remote branches (.git/refs/remotes/origin), clean up reflog and remove all untracked files
+    cleanuplocal = !git remote prune origin && git gc && git clean -df
+
     unstage = reset HEAD --
 [apply]
     whitespace = nowarn
