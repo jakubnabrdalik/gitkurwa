@@ -40,6 +40,8 @@
     trackallbranches = !sh -c "for branchname in `git branch -r `; do git branch --track $branchname; done"
     updateallbranches = !sh -c "for branchname in `git branch -r `; do git checkout $branchname ; git pull; done"
 
+    # fix .gitignore
+    fixgitignore = !git rm -r --cached . && git add . && git commit -m \"Just a .gitignore fix \"
 
     #tags
     showtags = show-ref --tags
