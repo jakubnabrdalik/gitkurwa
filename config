@@ -52,6 +52,7 @@
     purr = pull --rebase
     difff = diff --color-words #just words
     bbranch = branch -v    
+    branches = branch -avvl
     sth = stash -u
 
     #what do I have in my toolbox?
