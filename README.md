@@ -52,3 +52,7 @@ Mówi jakie branche mamy w origin, kto je modyfikował i kiedy. Bardzo przydatne
 
     git showorigin
 
+Inny sposób prezentacj wszystkich branchy
+
+    git branches
+
