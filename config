@@ -34,7 +34,7 @@
     whoischangingmaster = !sh -c 'git shortlog HEAD..origin/master'
     
     #what branches you have on origin, with info on who is guilty and how long ago. Useful for gitflow and feature branches in general. Requires fetch up-front.
-    showorigin = !sh -c "isHash=true; for i in `git ls-remote -h origin`; do [ ! -z $isHash ] &&  echo \" $i\" || printf \"%-8s %8s %-8s%-3s %-10s %-20s\" `git show -s --pretty=format:\"%C(yellow)%h %Cred%ad %Cblue%an\" --date=relative $i`  ; [ ! -z $isHash ] && isHash=\"\" || isHash=true ;  done"
+    showorigin = "!sh -c 'for branch in `git branch -r | grep -v HEAD`;do echo `git show -s --format=\"%Cred%ci %C(green)%h %C(yellow)%cr %C(magenta)%an %C(blue)\" $branch | head -n 1` \\\t$branch; done | sort -r'"
 
     #get remote branches
     trackallbranches = !sh -c "for branchname in `git branch -r `; do git branch --track $branchname; done"
