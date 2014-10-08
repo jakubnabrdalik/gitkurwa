@@ -47,6 +47,8 @@
     showtags = show-ref --tags
     pushtags = push --tags
     tagwithdate = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
+    lasttag = describe --abbrev=0 --tags
+    checkoutlasttag = !sh -c 'git checkout `git describe --abbrev=0 --tags`'
 
     #better versions
     purr = pull --rebase
