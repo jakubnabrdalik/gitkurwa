@@ -79,6 +79,9 @@
     cleanuplocal = !git remote prune origin && git gc && git clean -df
 
     unstage = reset HEAD --
+
+    squash = "!sh -c \"git rebase -i HEAD~$1\""
+
 [apply]
     whitespace = nowarn
 [core]
