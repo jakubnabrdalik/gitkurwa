@@ -56,3 +56,7 @@ Inny sposób prezentacji wszystkich branchy - jeszcze bardziej szczegółowy
 
     git branches
 
+Zmiana aktywnego katalogu na główny katalog repozytorium (komenda basha)
+
+    git-root
+

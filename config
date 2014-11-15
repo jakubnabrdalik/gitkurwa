@@ -84,6 +84,10 @@
     # Check if any file in repo has whitespace errors
     # As described in http://peter.eisentraut.org/blog/2014/11/04/checking-whitespace-with-git/
     check-whitespace = !git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
+
+    # for git-root command
+    proot = !pwd
+
 [apply]
     whitespace = nowarn
 [core]
