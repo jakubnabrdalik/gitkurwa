@@ -85,8 +85,7 @@
     # As described in http://peter.eisentraut.org/blog/2014/11/04/checking-whitespace-with-git/
     check-whitespace = !git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
 
-    # for git-root command
-    proot = !pwd
+    root = !sh -c "cd $(git rev-parse --show-toplevel)"
 
 [apply]
     whitespace = nowarn
