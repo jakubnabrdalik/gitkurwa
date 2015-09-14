@@ -87,6 +87,9 @@
 
     # for git-root command
     proot = !pwd
+    
+    #Jira tickets (from: http://blogs.atlassian.com/2014/08/whats-new-git-2-1/)
+    issues = !sh -c 'git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq' -
 
 [apply]
     whitespace = nowarn
