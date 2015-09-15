@@ -59,6 +59,7 @@
 
     #better versions
     purr = pull --rebase
+    puff = pull --ff-only
     difff = diff --color-words #just words
     bbranch = branch -v    
     branches = branch -avvl
