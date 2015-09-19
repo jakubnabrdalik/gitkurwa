@@ -56,6 +56,10 @@
     tagwithdate = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
     lasttag = describe --abbrev=0 --tags
     checkoutlasttag = !sh -c 'git checkout `git describe --abbrev=0 --tags`'
+    # Pushes given tag to remote 'origin' repo
+    publishtag = "!sh -c 'git push origin $0'"
+    # Removes given tag from remote 'origin' repo
+    unpublishtag = "!sh -c 'git push origin :refs/tags/$0'"
 
     #better versions
     purr = pull --rebase
