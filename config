@@ -97,6 +97,13 @@
     #version for git below 2.1
     #issues = !sh -c 'git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq' -
 
+    # Gets the current branch name (not so useful in itself, but used in other aliases)
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    # Pushes the current branch to the remote "origin", and set it to track the upstream branch
+    publish = "!git push -u origin $(git branch-name)"
+    # Deletes the remote version of the current branch
+    unpublish = "!git push origin :$(git branch-name)"
+
 [apply]
     whitespace = nowarn
 [core]
@@ -109,3 +116,4 @@
 #http://robots.thoughtbot.com/post/4747482956/streamline-your-git-workflow-with-aliases
 #http://oli.jp/2012/git-powerup/#conclusion
 #http://blog.blindgaenger.net/advanced_git_aliases.html
+#https://gist.github.com/robmiller/6018582 (branch-name, publish, unpublish)
