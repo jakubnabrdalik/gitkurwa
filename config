@@ -105,6 +105,9 @@
     # Deletes the remote version of the current branch
     unpublish = "!git push origin :$(git branch-name)"
 
+    # Fetch PR from GitHub by number/id
+    fetchpr = "!sh -c 'git fetch origin pull/$0/head:pr/$0'"
+
 [apply]
     whitespace = nowarn
 [core]
