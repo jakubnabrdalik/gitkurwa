@@ -108,6 +108,10 @@
     # Ignore files only locally
     hide = update-index --assume-unchanged
 	unhide = update-index --no-assume-unchanged
+
+    # Fetch PR from GitHub by number/id
+    fetchpr = "!sh -c 'git fetch origin pull/$0/head:pr/$0'"
+
 [apply]
     whitespace = nowarn
 [core]
