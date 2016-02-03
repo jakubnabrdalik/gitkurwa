@@ -43,6 +43,10 @@
     zbokukurwa = stash apply
     sprzatajkurwa = clean
     sprzatajwszystkokurwa = !sh -c 'git clean -x' && git reset --hard
+    
+    dodajkurwa = add
+    takkurwa = commit
+    sorrykurwa = commit --amend -m
 
     cofnijwchuj = reset HEAD~100
     wypierdolwchuj = reset HEAD~100 --hard
