@@ -105,6 +105,9 @@
     # Deletes the remote version of the current branch
     unpublish = "!git push origin :$(git branch-name)"
 
+    # Ignore files only locally
+    hide = update-index --assume-unchanged
+	unhide = update-index --no-assume-unchanged
 [apply]
     whitespace = nowarn
 [core]
