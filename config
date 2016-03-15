@@ -56,10 +56,10 @@
     tagwithdate = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
     lasttag = describe --abbrev=0 --tags
     checkoutlasttag = !sh -c 'git checkout `git describe --abbrev=0 --tags`'
-    # Pushes given tag to remote 'origin' repo
-    publishtag = "!sh -c 'git push origin $0'"
-    # Removes given tag from remote 'origin' repo
-    unpublishtag = "!sh -c 'git push origin :refs/tags/$0'"
+    # Pushes given tag to remote 'origin' repo (or the remote passed as the second parameter)
+    publishtag = "!sh -c 'git push ${2:-origin} $1' -"
+    # Removes given tag from remote 'origin' repo (or the remote passed as the second parameter)
+    unpublishtag = "!sh -c 'git push ${2:-origin} :refs/tags/$1' -"
 
     #better versions
     purr = pull --rebase
@@ -100,10 +100,12 @@
 
     # Gets the current branch name (not so useful in itself, but used in other aliases)
     branch-name = "!git rev-parse --abbrev-ref HEAD"
-    # Pushes the current branch to the remote "origin", and set it to track the upstream branch
-    publish = "!git push -u origin $(git branch-name)"
-    # Deletes the remote version of the current branch
-    unpublish = "!git push origin :$(git branch-name)"
+    # Pushes the current branch to the remote "origin" (or the remote passed as the parameter)
+    # and set it to track the upstream branch
+    publish = "!sh -c 'git push -u ${1:-origin} $(git branch-name)' -"
+    # Deletes the remote version of the current branch from the remote "origin"
+    # (or the remote passed as the parameter)
+    unpublish = "!sh -c 'git push ${1:-origin} :$(git branch-name)' -"
 
 [apply]
     whitespace = nowarn
