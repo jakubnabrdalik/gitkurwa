@@ -21,20 +21,35 @@
     untracked = cyan
 
 [alias]
-    #those who don't know history, are doomed to repeat it
+    #BETTER VERSIONS OF BASIC COMMANDS
+
+    purr = pull --rebase
+    puff = pull --ff-only
+    difff = diff --color-words #just words
+    bbranch = branch -v    
+    branches = branch -avvl
+    sth = stash -u
+    unstage = reset HEAD --
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+    makegitrepo = !git init && git add . && git commit -m \"initial commit\"
+
+    #BASIC HISTORY VIEWING
+
     hist = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
     histfull = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
     llog = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
     changelog = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso
     ls = log --pretty=format:'%C(yellow)%p..%h %C(white dim)%cd %<|(49,trunc)%an %C(reset)%s' --date=short --abbrev=8 --no-merges
 
-    #wish i knew
+    #BASIC REPO INFORMATION
+
     whois = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"
     whatis = show -s --pretty='tformat::%h (%s, %ad)' --date=short
     howmany = "!sh -c 'git log -a --pretty=oneline | wc -l'"
     howmanybywhom = shortlog -sn
 
-    #what's going on, I don't even
+    #WHAT WAS GOING ON, WHILE YOU WERE AWAY
+
     anychanges = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
     anychangesonmaster = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
     whoischanging = !sh -c 'git shortlog HEAD..origin/$0'
@@ -47,10 +62,8 @@
     trackallbranches = !sh -c "for branchname in `git branch -r `; do git branch --track $branchname; done"
     updateallbranches = !sh -c "for branchname in `git branch -r `; do git checkout $branchname ; git pull; done"
 
-    # fix .gitignore
-    fixgitignore = !git rm -r --cached . && git add . && git commit -m \"Just a .gitignore fix \"
+    #TAGS
 
-    #tags
     showtags = show-ref --tags
     pushtags = push --tags
     tagwithdate = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
@@ -61,38 +74,31 @@
     # Removes given tag from remote 'origin' repo (or the remote passed as the second parameter)
     unpublishtag = "!sh -c 'git push ${2:-origin} :refs/tags/$1' -"
 
-    #better versions
-    purr = pull --rebase
-    puff = pull --ff-only
-    difff = diff --color-words #just words
-    bbranch = branch -v    
-    branches = branch -avvl
-    sth = stash -u
+    #IGNORING
 
-    #what do I have in my toolbox?
-    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+    # fix .gitignore
+    fixgitignore = !git rm -r --cached . && git add . && git commit -m \"Just a .gitignore fix \"
 
-    #fiat lux
-    makegitrepo = !git init && git add . && git commit -m \"initial commit\"
+    # Ignore files only locally
+    hide = update-index --assume-unchanged
+    unhide = update-index --no-assume-unchanged
+
+    #OTHER
     
     #Finds a filename in the git repository. Gives absolute location (from the git root).
     find = !sh -c 'git ls-tree -r --name-only HEAD | grep --color $1' - 
 
     #Deletes all branches that were safely merged into the master. All other are skipped (no worries).
+    #on osx xargs does not have -r argument, so it fail. If you remove -r, it will run at least once, making this not safe operation
     cleanup = !git branch --merged=master | grep -Ev '^\\* | master$' | xargs -r git branch -d
 
     #Deletes orphaned remote branches (.git/refs/remotes/origin), clean up reflog and remove all untracked files
     cleanuplocal = !git remote prune origin && git gc && git clean -df
 
-    unstage = reset HEAD --
-
     # Check if any file in repo has whitespace errors
     # As described in http://peter.eisentraut.org/blog/2014/11/04/checking-whitespace-with-git/
     check-whitespace = !git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
 
-    # for git-root command
-    proot = !pwd
-    
     #Jira tickets (from: http://blogs.atlassian.com/2014/08/whats-new-git-2-1/)
     issues = "!f() { : git log ; echo 'Printing issue keys'; git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq; }; f"
     #version for git below 2.1
@@ -100,16 +106,10 @@
 
     # Gets the current branch name (not so useful in itself, but used in other aliases)
     branch-name = "!git rev-parse --abbrev-ref HEAD"
-    # Pushes the current branch to the remote "origin" (or the remote passed as the parameter)
-    # and set it to track the upstream branch
+    # Pushes the current branch to the remote "origin" (or the remote passed as the parameter) and set it to track the upstream branch
     publish = "!sh -c 'git push -u ${1:-origin} $(git branch-name)' -"
-    # Deletes the remote version of the current branch from the remote "origin"
-    # (or the remote passed as the parameter)
+    # Deletes the remote version of the current branch from the remote "origin" (or the remote passed as the parameter)
     unpublish = "!sh -c 'git push ${1:-origin} :$(git branch-name)' -"
-
-    # Ignore files only locally
-    hide = update-index --assume-unchanged
-	unhide = update-index --no-assume-unchanged
 
     # Fetch PR from GitHub by number/id
     fetchpr = "!sh -c 'git fetch origin pull/$0/head:pr/$0'"
