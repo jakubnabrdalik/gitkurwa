@@ -21,6 +21,13 @@
     untracked = cyan
 
 [alias]
+    #LAZY VERSIONS OF BASIC COMMANDS
+    
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+
     #BETTER VERSIONS OF BASIC COMMANDS
 
     purr = pull --rebase
