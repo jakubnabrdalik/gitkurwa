@@ -161,5 +161,5 @@
     git fetchpr <ID>
 
 
-###### sZmiana aktywnego katalogu na główny katalog repozytorium (komenda basha)
+###### Zmiana aktywnego katalogu na główny katalog repozytorium (komenda basha)
     git-root
