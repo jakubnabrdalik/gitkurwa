@@ -1,4 +1,16 @@
 # Przydatne obecnie aliasy:
+
+### LENIWE WERSJE STANDARDOWYCH KOMEND
+
+###### checkout
+    git co
+###### branch
+    git br
+###### commit
+    git ci
+###### status
+    git st
+
 ### LEPSZE WERSJE STANDARDOWYCH KOMEND
 
 ###### Pull z rebase
@@ -134,7 +146,7 @@
     git find <FILE>
 
 ###### Kasuje wszystkie brancze które były zmerdzowane do mastera. Wszystkie pozostałe zostawia w spokoju, o ile nie odpalasz tego na OSX !
-    #on osx xargs does not have -r argument, so it fail.
+    #on osx xargs does not have -r argument, so it fail
     #If you remove -r, it will run at least once, making this not safe operation
     git cleanup
 
