@@ -124,7 +124,7 @@
 [apply]
     whitespace = nowarn
 [core]
-    pager = less -r
+    pager = less -R
 [help]
     autocorrect = 1 #fucking magic!
 
