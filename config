@@ -3,6 +3,8 @@
 
 [push]
     default = tracking
+[rerere]
+    enabled = true
 
 [color]
     ui = auto
