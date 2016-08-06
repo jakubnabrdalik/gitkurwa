@@ -5,6 +5,8 @@
     default = tracking
 [rerere]
     enabled = true
+[rebase]
+    autosquash = true
 
 [color]
     ui = auto
