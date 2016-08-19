@@ -129,7 +129,7 @@
 ### IGNOROWANIE
 
 
-###### Usuwa z repozytorium nowo ignorowane pliki, po modyfikacji .gitignore. Comituje od razu tą zmianę.
+###### Usuwa z repozytorium nowo ignorowane pliki, po modyfikacji .gitignore. Comituje od razu tę zmianę.
     git fixgitignore
 
 ###### Ukrywa zmiany, tak że git status ich nie widzi
