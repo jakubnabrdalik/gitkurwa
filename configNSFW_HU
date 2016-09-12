@@ -1,0 +1,57 @@
+[color]
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[alias]
+    kibaszottfa = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+    kibaszottnagyfa = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    kurvakommitok = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+
+    kiakurvaanyja = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"
+    miakurvaanyja = show -s --pretty='tformat::%h (%s, %ad)' --date=short
+
+    miafaszvan = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
+    miafaszvantekurva = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
+    kiafaszvoltez = !sh -c 'git shortlog HEAD..origin/$0'
+    kiafaszvolteztekurva = !sh -c 'git shortlog HEAD..origin/master'
+    
+    kurvatagek = show-ref --tags
+    bazdmegakurvatageket = push --tags
+    holakurvadatum = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
+
+    baszdkiazosszesszart = reset --hard
+
+    miakurvaanyadatcsinaltal = blame
+
+    kurvaanyad = status
+    bazdmeg = status
+    miakurvaelet = diff
+    hogyafaszba = help
+    nemkellidebazdmeg = stash
+    megiskellbazdmeg = stash apply
+    ittkurvararendlesz = clean
+    ittkibaszottulkurvararendlesz = !sh -c 'git clean -x' && git reset --hard
+    
+    gyerunkbazdmeg = add
+    igenbazdmeg = commit
+    akurvaeletbe = commit --amend -m
+
+    rohadjonmegmind = reset HEAD~100
+    rohadjonmegazosszeskurvaszar = reset HEAD~100 --hard
+    huzzalmarelakurvaanyadba = push origin --force
+    
+[apply]
+	whitespace = nowarn
+
