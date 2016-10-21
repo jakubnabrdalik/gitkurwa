@@ -42,7 +42,7 @@
     nemkellidebazdmeg = stash
     megiskellbazdmeg = stash apply
     ittkurvararendlesz = clean
-    ittkibaszottulkurvararendlesz = !sh -c 'git clean -x' && git reset --hard
+    ittkibaszottulkurvararendlesz = !sh -c 'git clean -dfx' && git reset --hard
     
     gyerunkbazdmeg = add
     igenbazdmeg = commit
