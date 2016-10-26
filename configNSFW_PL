@@ -53,7 +53,7 @@
     cofnijwchuj = reset HEAD~100
     wypierdolwchuj = reset HEAD~100 --hard
     acomitamkurwa = push origin --force
-    walictokurwa = rm .* -Rf
+    walictokurwa = rm .* -Rf 
 
     palisiekurwa = !sh -c 'git add . && git commit --force -m \"palilo sie\" && git push && echo \"Ok, now RUN!\"'
     
