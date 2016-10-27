@@ -55,7 +55,7 @@
     acomitamkurwa = push origin --force
     walictokurwa = rm .* -rF
 
-    palisiekurwa = !sh -c 'git add . && git commit --force -m \"palilo sie\" && git push && echo \"Ok, now RUN!\"'
+    palisiekurwa = !sh -c 'git add . && git commit --force -m \"palilo sie\" && git push && echo \"Spierdalaj, KURWA!\"'
     
 [apply]
 	whitespace = nowarn
