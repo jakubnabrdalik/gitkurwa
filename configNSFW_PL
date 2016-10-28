@@ -26,14 +26,14 @@
     cotammistrzukurwa = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
     ktotamkurwa = !sh -c 'git shortlog HEAD..origin/$0'
     ktotammistrzukurwa = !sh -c 'git shortlog HEAD..origin/master'
-    
+
     tagikurwa = show-ref --tags
     pchajtagikurwa = push --tags
     tagujzdatakurwa = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
 
     pojebalosiekurwa = reset --hard
 
-    ktonajebalkurwa = blame
+    ktozjebalkurwa = blame
 
     kurwa = status
     cokurwa = status
@@ -43,7 +43,7 @@
     zbokukurwa = stash apply
     sprzatajkurwa = clean
     sprzatajwszystkokurwa = !sh -c 'git clean -x' && git reset --hard
-    
+
     dodajkurwa = add
     takkurwa = commit
     dalejkurwa = push
@@ -56,7 +56,7 @@
     walictokurwa = rm .* -rF
 
     palisiekurwa = !sh -c 'git add . && git commit --force -m \"palilo sie\" && git push && echo \"Ok, now RUN!\"'
-    
+
 [apply]
 	whitespace = nowarn
 
