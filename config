@@ -2,7 +2,7 @@
     autosetupmerge = true
 
 [push]
-    default = tracking
+    default = upstream
 [rerere]
     enabled = true
 [rebase]
