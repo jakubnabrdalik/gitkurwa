@@ -48,6 +48,8 @@
     takkurwa = commit
     dalejkurwa = push
     dalejnowociotokurwa = push -u origin master
+    pchajkurwa = push
+    pchajkurwayolo = push --force
     sorrykurwa = commit --amend -m
 
     cofnijwchuj = reset HEAD~100
