@@ -26,7 +26,7 @@
 
 [alias]
     #LAZY VERSIONS OF BASIC COMMANDS
-    
+
     co = checkout
     br = branch
     ci = commit
@@ -37,7 +37,7 @@
     purr = pull --rebase
     puff = pull --ff-only
     difff = diff --color-words #just words
-    bbranch = branch -v    
+    bbranch = branch -v
     branches = branch -avvl
     sth = stash -u
     unstage = reset HEAD --
@@ -65,7 +65,7 @@
     anychangesonmaster = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
     whoischanging = !sh -c 'git shortlog HEAD..origin/$0'
     whoischangingmaster = !sh -c 'git shortlog HEAD..origin/master'
-    
+
     #what branches you have on origin, with info on who is guilty and how long ago. Useful for gitflow and feature branches in general. Requires fetch up-front.
     showorigin = "!sh -c 'for branch in `git branch -r | grep -v HEAD`;do echo `git show -s --format=\"%Cred%ci %C(green)%h %C(yellow)%cr %C(magenta)%an %C(blue)\" $branch | head -n 1` \\\t$branch; done | sort -r'"
 
