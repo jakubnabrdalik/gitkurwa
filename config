@@ -110,6 +110,9 @@
     # As described in http://peter.eisentraut.org/blog/2014/11/04/checking-whitespace-with-git/
     check-whitespace = !git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
 
+    # Check if any file in repo has windows line endings
+    check-eol = git grep -I --files-with-matches $'\r' HEAD
+
     #Jira tickets (from: http://blogs.atlassian.com/2014/08/whats-new-git-2-1/)
     issues = "!f() { : git log ; echo 'Printing issue keys'; git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq; }; f"
     #version for git below 2.1
