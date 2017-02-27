@@ -26,7 +26,7 @@
 
 [alias]
     #LAZY VERSIONS OF BASIC COMMANDS
-    
+
     co = checkout
     br = branch
     ci = commit
@@ -37,7 +37,7 @@
     purr = pull --rebase
     puff = pull --ff-only
     difff = diff --color-words #just words
-    bbranch = branch -v    
+    bbranch = branch -v
     branches = branch -avvl
     sth = stash -u
     unstage = reset HEAD --
@@ -65,7 +65,7 @@
     anychangesonmaster = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
     whoischanging = !sh -c 'git shortlog HEAD..origin/$0'
     whoischangingmaster = !sh -c 'git shortlog HEAD..origin/master'
-    
+
     #what branches you have on origin, with info on who is guilty and how long ago. Useful for gitflow and feature branches in general. Requires fetch up-front.
     showorigin = "!sh -c 'for branch in `git branch -r | grep -v HEAD`;do echo `git show -s --format=\"%Cred%ci %C(green)%h %C(yellow)%cr %C(magenta)%an %C(blue)\" $branch | head -n 1` \\\t$branch; done | sort -r'"
 
@@ -109,6 +109,9 @@
     # Check if any file in repo has whitespace errors
     # As described in http://peter.eisentraut.org/blog/2014/11/04/checking-whitespace-with-git/
     check-whitespace = !git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
+
+    # Check if any file in repo has windows line endings
+    check-eol = git grep -I --files-with-matches $'\r' HEAD
 
     #Jira tickets (from: http://blogs.atlassian.com/2014/08/whats-new-git-2-1/)
     issues = "!f() { : git log ; echo 'Printing issue keys'; git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq; }; f"
