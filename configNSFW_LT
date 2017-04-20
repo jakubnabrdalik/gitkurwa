@@ -1,0 +1,65 @@
+[color]
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[alias]
+    mediskurva = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+    medisnxkurva = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    komitaikurva = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+
+    kastaskurva = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"
+    kadakurva = show -s --pretty='tformat::%h (%s, %ad)' --date=short
+
+    kayrakurva = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
+    kayraapskritaikurva = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
+    kastenkurva = !sh -c 'git shortlog HEAD..origin/$0'
+    kastenapskritaikurva = !sh -c 'git shortlog HEAD..origin/master'
+    
+    tagaikurwa = show-ref --tags
+    stumktaguskurva = push --tags
+    taginksudatakurva = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
+
+    amanpxkurva = reset --hard
+
+    kastaskurva = blame
+
+    kurva = status
+    kaskurva = status
+    kayrakurva = diff
+    ekurva = help
+    salinkurva = stash
+    atgalkurva = stash apply
+    pizdinkkurva = clean
+    pizdinkvapsekurva = !sh -c 'git clean -x' && git reset --hard
+    apsivalykkurva = !sh -c 'git branch --merged' | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
+    
+    pridekkurva = add
+    vatepvakurva = commit
+    stumkkurva = push
+    stumksudakurva = push -u origin master
+    uzsipiskitkurva = push
+    uzsipiskitkurvayolo = push --force
+    sorrykurva = commit --amend -m
+
+    kasperbybis = reset HEAD~100
+    kasperbybisnx = reset HEAD~100 --hard
+    otadairtavekurva = push origin --force
+    valinkkurva = rm .* -rF
+
+    ajvopsemkurva = !sh -c 'git add . && git commit -m \"palilo sie\" && git push --force && echo \"Ok, now RUN!\"'
+    
+[apply]
+	whitespace = nowarn
+
