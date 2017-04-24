@@ -47,6 +47,8 @@
     
     dodajkurwa = add
     takkurwa = commit
+    sciagajkurwa = pull
+    sciagajtegokurwa = !sh -c 'git pull origin $(git rev-parse --abbrev-ref HEAD)'
     dalejkurwa = push
     dalejnowociotokurwa = push -u origin master
     pchajkurwa = push
