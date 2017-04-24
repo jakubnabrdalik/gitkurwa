@@ -111,7 +111,8 @@
     check-whitespace = !git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
 
     # Check if any file in repo has windows line endings
-    check-eol = git grep -I --files-with-matches $'\r' HEAD
+    #Currently do not work as alias, works from comand line directly. There is a problem with \r
+    #check-eol = grep -I --files-with-matches --cached $'\r' HEAD
 
     #Jira tickets (from: http://blogs.atlassian.com/2014/08/whats-new-git-2-1/)
     issues = "!f() { : git log ; echo 'Printing issue keys'; git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq; }; f"
