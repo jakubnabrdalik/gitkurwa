@@ -125,6 +125,8 @@
     publish = "!sh -c 'git push -u ${1:-origin} $(git branch-name)' -"
     # Deletes the remote version of the current branch from the remote "origin" (or the remote passed as the parameter)
     unpublish = "!sh -c 'set -e; git push ${1:-origin} :$(git branch-name);git branch --unset-upstream $(git branch-name)' -"
+    hide = update-index --assume-unchanged
+    unhide = update-index --no-assume-unchanged
 
     # Fetch PR from GitHub by number/id
     fetchpr = "!sh -c 'git fetch origin pull/$0/head:pr/$0'"
