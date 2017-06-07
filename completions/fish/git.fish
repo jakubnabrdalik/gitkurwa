@@ -1,4 +1,4 @@
-#Custom Git completion for (a subset) of gitkurka/gitk*rwa aliases for Fish
+#Custom Git completion for (a subset) of gitkurka/gitkurwa aliases for Fish
 #Put it into ~/.config/fish/completions/ (as git.fish)
 
 source $__fish_datadir/completions/git.fish
