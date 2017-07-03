@@ -43,7 +43,7 @@
     zbokukurwa = stash apply
     sprzatajkurwa = clean
     sprzatajwszystkokurwa = !sh -c 'git clean -x' && git reset --hard
-    wyjebzrobionekurwa = !sh -c 'git branch --merged' | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
+    wyjebzrobionekurwa = !sh -c 'git branch --merged' | grep -v "\\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
     
     dodajkurwa = add
     takkurwa = commit
