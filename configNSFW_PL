@@ -30,6 +30,8 @@
     tagikurwa = show-ref --tags
     pchajtagikurwa = push --tags
     tagujzdatakurwa = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
+	wyjebtag = !sh -c 'git tag -d "$0"'
+	wyjebtagwchuj = !sh -c 'git tag -d "$0" && git push --delete origin tag "$0"'
 
     pojebalosiekurwa = reset --hard
 
