@@ -175,6 +175,8 @@
     # Fetch PR from GitHub by number/id
     git fetchpr <ID>
 
+###### Dodaj wszystko, skomituj z messagem, wpushuj
+    git apm "message"
 
 ###### Zmiana aktywnego katalogu na główny katalog repozytorium (komenda basha)
     git-root
