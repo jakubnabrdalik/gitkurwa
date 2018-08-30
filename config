@@ -129,6 +129,9 @@
     # Fetch PR from GitHub by number/id
     fetchpr = "!sh -c 'git fetch origin pull/$0/head:pr/$0'"
 
+    #add all, commit with message and push to remote
+    apm = "!f() { git add --all && git commit -m \"$@\" && git push; }; f"
+
 [apply]
     whitespace = nowarn
 [core]
