@@ -4,6 +4,8 @@
     current = yellow reverse
     local = yellow
     remote = green
+[color "decorate"]
+    remoteBranch = blue bold
 [color "diff"]
     meta = yellow bold
     frag = magenta bold
@@ -15,8 +17,10 @@
     untracked = cyan
 
 [alias]
-    passadoporra = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
-    mostratudoporra = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    passadoporra = log --graph --date=relative \
+        --format=format:'%C(auto)%h %C(bold blue)%an%C(auto)%d %C(green)%ad%C(reset)%n%w(80,8,8)%s'
+    mostratudoporra = log --graph --date=relative --name-status \
+        --format=format:'%C(auto)%h %C(bold blue)%an%C(auto)%d %C(green)%ad%C(reset)%n%w(80,8,8)%s%n'
     datanessaporra = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
 
     quemporra = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"

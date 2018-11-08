@@ -14,6 +14,8 @@
     current = yellow reverse
     local = yellow
     remote = green
+[color "decorate"]
+    remoteBranch = blue bold
 [color "diff"]
     meta = yellow bold
     frag = magenta bold
@@ -47,8 +49,10 @@
 
     #BASIC HISTORY VIEWING
 
-    hist = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
-    histfull = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    hist = log --graph --date=relative \
+        --format=format:'%C(auto)%h %C(bold blue)%an%C(auto)%d %C(green)%ad%C(reset)%n%w(80,8,8)%s'
+    histfull = log --graph --date=relative --name-status \
+        --format=format:'%C(auto)%h %C(bold blue)%an%C(auto)%d %C(green)%ad%C(reset)%n%w(80,8,8)%s%n'
     llog = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
     changelog = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso
     ls = log --pretty=format:'%C(yellow)%p..%h %C(white dim)%cd %<|(49,trunc)%an %C(reset)%s' --date=short --abbrev=8 --no-merges
