@@ -59,6 +59,9 @@
 ###### Pokazuje comity bez czasu, autorem i tagami
     git ls
 
+###### Pokazuje branche posortowane wg daty ostatniego commitu
+    git recent
+
 
 ### PODSTAWOWE INFORMACJE O REPOZYTORIUM
 
