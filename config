@@ -43,6 +43,7 @@
     unstage = reset HEAD --
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1 => \\2/' | grep -v 'alias'| awk 'BEGIN { FS = \"=>\" }{ printf(\"%-20s=>%s\\n\", $1,$2)}'|sort
     makegitrepo = !git init && git add . && git commit -m \"initial commit\"
+    fpush = push --force-with-lease
 
     #BASIC HISTORY VIEWING
 
