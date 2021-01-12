@@ -31,7 +31,7 @@
     kastenkurva = !sh -c 'git shortlog HEAD..origin/$0'
     kastenapskritaikurva = !sh -c 'git shortlog HEAD..origin/master'
     
-    tagaikurwa = show-ref --tags
+    tagaikurva = show-ref --tags
     stumktaguskurva = push --tags
     taginksudatakurva = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
 
