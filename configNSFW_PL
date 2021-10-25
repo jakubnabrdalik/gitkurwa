@@ -50,7 +50,7 @@
     sprzatajkurwa = clean
     sprzatajwszystkokurwa = !sh -c 'git clean -x' && git reset --hard
     wyjebzrobionekurwa = !sh -c 'git branch --merged' | grep -v "\\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
-    majonez = !sh -c 'branch="$(git rev-parse --abbrev-ref HEAD)" && git checkout master && git pull && git branch -d "$branch"'
+    majonez = !sh -c 'test "$0" = "sh" && master="master" || master="$0" && branch="$(git rev-parse --abbrev-ref HEAD)" && git checkout $master && git pull && git branch -D "$branch"'
     
     dodajkurwa = add
     takkurwa = commit
