@@ -28,6 +28,9 @@
 ###### Inny sposób prezentacji wszystkich branchy - jeszcze bardziej szczegółowy
     git branches
 
+###### Przełącza na mastera, a jak go nie ma to na maina - dla ludzi pracujących z projektami ze zróżnicowaniem (ang. diversity) nazw głównych branchy
+    git cmaster
+
 ###### Odkłada na bok zmiany razem z plikami nie śledzonymi
     git sth
 

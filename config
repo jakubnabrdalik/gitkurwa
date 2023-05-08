@@ -41,6 +41,7 @@
     difff = diff --color-words #just words
     bbranch = branch -v
     branches = branch -avvl
+    cmaster = "!sh -c 'git show-ref --quiet refs/heads/master && git checkout master || git checkout main'"
     sth = stash -u
     unstage = reset HEAD --
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1 => \\2/' | grep -v 'alias'| awk 'BEGIN { FS = \"=>\" }{ printf(\"%-20s=>%s\\n\", $1,$2)}'|sort
