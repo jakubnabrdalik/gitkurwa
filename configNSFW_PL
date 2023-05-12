@@ -60,6 +60,7 @@
     dalejnowociotokurwa = push -u origin master
     pchajkurwa = push
     pchajkurwayolo = push --force
+    ruszzesietykurwo = push --force
     sorrykurwa = commit --amend -m
     spierdolwszystko = merge
     
